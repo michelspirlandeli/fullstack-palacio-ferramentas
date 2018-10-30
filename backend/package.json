@@ -1,12 +1,16 @@
 {
-  "name"       : "fullstack-palacio-ferramentas",
+  "name"       : "fullstack-palacio-ferramentas-backend",
   "version"    : "1.0.0",
   "description": "",
   "main"       : "index.js",
   "scripts"    : {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author"  : "michel spirlandeli",
-  "license" : "MIT"
+  "keywords"    : [],
+  "author"      : "michel spirlandeli",
+  "license"     : "MIT",
+  "dependencies": {
+    "mysql"  : "^2.16.0",
+    "restify": "^7.2.1"
+  }
 }
