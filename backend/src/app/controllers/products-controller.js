@@ -1,5 +1,6 @@
-const restify = require('restify');
-const connection = require('../../config/database/database');
+const restify    = require('restify');
+const database   = require('../../config/database/database');
+const connection = require('../../config/server');
 
 const get = ('/products', (req, res) => {
     connection.query('SELECT * FROM produtos', (err, rows, fields) => {
@@ -10,5 +11,6 @@ const get = ('/products', (req, res) => {
     })
 });
 
-
-
+module.exports = {
+     get
+}
