@@ -40,5 +40,5 @@ const remover = ('/products/:id', (req, res) => {
 
 
 module.exports = {
-     get, getById, remover, post
+     get, getById, remover
 }
