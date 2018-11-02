@@ -1,7 +1,6 @@
 const restify    = require('restify');
 const database = require('../../config/database/database');
 
-
 //Get all products
 const get = ('/products', (req, res) => {
     database.query('SELECT * FROM produtos', (err, rows, fields) => {
@@ -35,8 +34,8 @@ const remover = ('/products/:id', (req, res) => {
 
 //Insert an products
 const post = ('/products', (req, res) => {
-   const {nome, descricao} = req.body
-   database.query('INSERT INTO produtos SET ?', {nome, descricao },  (err) => {
+   const {nome, descricao, quantidade, valor} = req.body
+   database.query('INSERT INTO produtos SET ?', {nome, descricao, quantidade, valor },  (err) => {
     if (!err)
     res.send('Insert successfully.');
     else
