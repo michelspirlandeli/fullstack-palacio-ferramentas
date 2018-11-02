@@ -9,6 +9,9 @@ const server = restify.createServer()
 server.pre(cors.preflight)
 server.use(cors.actual)
 
+server.use(restify.plugins.queryParser());
+server.use(restify.plugins.bodyParser());
+
 fornecedorRouter.applyRoutes(server);
 productRouter.applyRoutes(server);
 userRouter.applyRoutes(server);

@@ -6,8 +6,8 @@ const router = new Router();
 
 router.get('/users', userController.get);
 router.get('/users/admin/:id', userController.getById);
-/*router.post('/users', userController.post);
-router.put('/users/:id', userController.put);*/
+router.post('/users', userController.post);
+router.put('/users/:id', userController.put);
 router.del('/users/:id', userController.remover);
 
 module.exports = router;

@@ -34,11 +34,29 @@ const remover = ('/products/:id', (req, res) => {
 });
 
 //Insert an products
-
+const post = ('/products', (req, res) => {
+   const {nome, descricao} = req.body
+   database.query('INSERT INTO produtos SET ?', {nome, descricao },  (err) => {
+    if (!err)
+    res.send('Insert successfully.');
+    else
+    console.log(err);
+  });
+});
 
 //Update an products
-
+const put = ('/products/:id', (req, res) =>{
+    const idproduto = parseInt(req.params.id);
+    const nome      = req.body.nome
+    const descricao = req.body.descricao
+    database.query(`UPDATE produtos SET Nome='${nome}', DESCRICAO='${descricao}' WHERE IDPRODUTO=${idproduto}`, (err) => {
+        if (!err)
+        res.send('Update successfully.');
+        else
+        console.log(err);
+    });
+});
 
 module.exports = {
-     get, getById, remover
+     get, getById, remover,post, put
 }

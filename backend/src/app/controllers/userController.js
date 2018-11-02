@@ -35,11 +35,30 @@ const remover = ('/users/:id', (req, res) => {
 
 
 //Insert an users
-
-
-//Update an users
-
+const post = ('/users', (req, res) => {
+    const {nome, login, senha} = req.body
+    database.query('INSERT INTO usuarios SET ?', {nome, login, senha },  (err) => {
+     if (!err)
+     res.send('Insert successfully.');
+     else
+     console.log(err);
+   });
+ });
+ 
+ //Update an users
+ const put = ('/users/:id', (req, res) =>{
+     const idusuario = parseInt(req.params.id);
+     const nome      = req.body.nome
+     const login     = req.body.login
+     const senha     = req.body.senha
+     database.query(`UPDATE usuarios SET Nome='${nome}', LOGIN='${login}', SENHA='${senha}' WHERE IDUSUARIO=${idusuario}`, (err) => {
+         if (!err)
+         res.send('Update successfully.');
+         else
+         console.log(err);
+     });
+ });
 
 module.exports = {
-     get, getById, remover
+     get, getById, remover, post, put
 }
