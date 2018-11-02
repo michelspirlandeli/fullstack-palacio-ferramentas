@@ -13,7 +13,9 @@ class Fornecedores extends React.Component {
            console.log(fornecedores);
            this.setState({ fornecedores: fornecedores.data })
     } 
-
+delete = (idfornecedores) => {
+  instance.delete('/fornecedores/' + idfornecedores)
+}
   render() {
     const { fornecedores } = this.state;
     return (
@@ -44,7 +46,7 @@ class Fornecedores extends React.Component {
       <tbody>
       {fornecedores.map(fornecedor => (
         <tr>
-          <td>{fornecedor.idfornecedor}</td>
+          <td>{fornecedor.idfornecedores}</td>
           <td>{fornecedor.razao_social}</td>
           <td>{fornecedor.nome_fantasia}</td>
           <td>{fornecedor.rua}</td>
@@ -56,7 +58,7 @@ class Fornecedores extends React.Component {
           <td>{fornecedor.cnpj}</td>
           <td>
             <button className="btn btn-primary">Editar</button>
-            <button className="btn btn-danger" >Delete</button>
+            <button className="btn btn-danger" onClick={() => this.delete(fornecedor.idfornecedores)} >Delete</button>
           </td>
         </tr>
         ))}

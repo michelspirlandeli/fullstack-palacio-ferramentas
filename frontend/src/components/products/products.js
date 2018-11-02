@@ -6,6 +6,7 @@ import './style.css'
 class Products extends React.Component {
     state = {
          products: [],
+         
     };
     
     async componentDidMount() {
@@ -13,10 +14,14 @@ class Products extends React.Component {
            console.log(products);
            this.setState({ products: products.data })
     } 
-  delete = (idprodutos) => {
-     axios.delete('/products/:id')
+
+delete = (idprodutos) => {
+  instance.delete('/products/' + idprodutos)
+  // const products = await instance.get('/products')
+  // this.setState({ products })
 }
   render() {
+
     const { products } = this.state;
     return (
       
@@ -25,13 +30,14 @@ class Products extends React.Component {
           <div className="col-md-12">
               <a href="add.html" className="btn btn-primary pull-right h2">Novo Item</a>
           </div>
+          
           <h3 className="page-header">Produtos</h3>
             <table className="table table-striped">
             <thead>
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">NOME</th>
-                <th scope="col">DESCRICAO</th>
+                <th scope="col">DESCRIÇÃO</th>
                 <th scope="col">QTD</th>
                 <th scope="col">VALOR</th>
                 <th scope="col">OPÇÕES</th>
@@ -47,9 +53,10 @@ class Products extends React.Component {
                   <td>{product.valor}</td>
                   <td>
                     <button className="btn btn-primary">Editar</button>
-                    <button className="btn btn-danger" onClick={() => this.delete(idprodutos)} >Delete</button>
+                    <button className="btn btn-danger" onClick={() => this.delete(product.idprodutos)} >Delete</button>
                   </td>
                 </tr>
+                
                 ))}
             </tbody>
           </table>
@@ -59,4 +66,6 @@ class Products extends React.Component {
     }
 }
 export default Products;
+
+
 

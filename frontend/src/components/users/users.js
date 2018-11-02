@@ -13,6 +13,9 @@ class Users extends React.Component {
            console.log(users);
            this.setState({ users: users.data })
     } 
+delete = (idusuario) => {
+  instance.delete('/users/' + idusuario)
+}
 
   render() {
     const { users } = this.state;
@@ -44,7 +47,7 @@ class Users extends React.Component {
           <td>{user.senha}</td>
           <td>
             <button className="btn btn-primary">Editar</button>
-            <button className="btn btn-danger" >Delete</button>
+            <button className="btn btn-danger" onClick={() => this.delete(user.idusuario)}  >Delete</button>
           </td>
         </tr>
         ))}

@@ -14,7 +14,7 @@ const get = ('/fornecedores', (req, res) => {
 
 //Get an  ID fornecedores
 const getById = ('/fornecedores/admin/:id', (req, res) => {
-    database.query('SELECT * FROM fornecedores WHERE idfornecedor = ?', [req.params.id], (err, rows, fields) => {
+    database.query('SELECT * FROM fornecedores WHERE idfornecedores = ?', [req.params.id], (err, rows, fields) => {
         if (!err)
             res.send(rows);
         else
@@ -25,7 +25,7 @@ const getById = ('/fornecedores/admin/:id', (req, res) => {
 
 //Delete an fornecedores
 const remover = ('/fornecedores/:id', (req, res) => {
-    database.query('DELETE FROM fornecedores WHERE idfornecedor = ?', [req.params.id], (err, rows, fields) => {
+    database.query('DELETE FROM fornecedores WHERE idfornecedores = ?', [req.params.id], (err, rows, fields) => {
         if (!err)
             res.send('Deleted successfully.');
         else
@@ -46,19 +46,19 @@ const post = ('/fornecedores', (req, res) => {
  
  //Update an fornecedores
  const put = ('/fornecedores/:id', (req, res) =>{
-     const idfornecedor  = parseInt(req.params.id);
-     const nome_fantasia = req.body.nome_fantasia
-     const razao_social  = req.body.razao_social
-     const rua           = req.body.rua
-     const numero        = req.body.numero
-     const bairro        = req.body.bairro
-     const cidade        = req.body.cidade
-     const telefone      = req.body.telefone
-     const email         = req.body.email
-     const cnpj          = req.body.cnpj
+     const idfornecedores = parseInt(req.params.id);
+     const nome_fantasia  = req.body.nome_fantasia
+     const razao_social   = req.body.razao_social
+     const rua            = req.body.rua
+     const numero         = req.body.numero
+     const bairro         = req.body.bairro
+     const cidade         = req.body.cidade
+     const telefone       = req.body.telefone
+     const email          = req.body.email
+     const cnpj           = req.body.cnpj
      database.query(`UPDATE fornecedores SET NOME_FANTASIA='${nome_fantasia}', RAZAO_SOCIAL='${razao_social}', RUA='${rua}',
-                 NUMERO       = '${numero}', BAIRRO = '${bairro}', CIDADE = '${cidade}', TELEFONE = '${telefone}', EMAIL = '${email}', CNPJ = '${cnpj}'
-           WHERE IDFORNECEDOR = ${idfornecedor}`, (err) => {
+                                   NUMERO       = '${numero}', BAIRRO = '${bairro}', CIDADE = '${cidade}', TELEFONE = '${telefone}', EMAIL = '${email}', CNPJ = '${cnpj}'
+                             WHERE IDFORNECEDOR = ${idfornecedor}`, (err) => {
          if (!err)
          res.send('Update successfully.');
          else
