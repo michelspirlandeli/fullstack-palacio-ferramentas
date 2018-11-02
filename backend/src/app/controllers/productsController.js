@@ -24,8 +24,6 @@ const getById = ('/products/admin/:id', (req, res) => {
 //Delete an products
 const remover = ('/products/:id', (req, res) => {
     database.query('DELETE FROM produtos WHERE idprodutos = ?', [req.params.id], (err, rows, fields) => {
-        console.log(req.params);
-
         if (!err)
             res.send('Deleted successfully.');
         else

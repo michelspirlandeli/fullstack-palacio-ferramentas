@@ -15,11 +15,12 @@ class Products extends React.Component {
            this.setState({ products: products.data })
     } 
 
-delete = (idprodutos) => {
+delete = async (idprodutos) => {
   instance.delete('/products/' + idprodutos)
-  // const products = await instance.get('/products')
-  // this.setState({ products })
+   const products = await instance.get('/products')
+   this.setState({ products })
 }
+
   render() {
 
     const { products } = this.state;
