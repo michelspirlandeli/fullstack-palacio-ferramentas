@@ -22,26 +22,40 @@ class Fornecedores extends React.Component {
   <div className="table-responsive">
   
     <div className="col-md-12">
-        <a href="add.html" class="btn btn-primary pull-right h2">Novo Item</a>
+        <a href="add.html" className="btn btn-primary pull-right h2">Novo Item</a>
     </div>
-    <h3 class="page-header">Fornecedores</h3>
+    <h3 className="page-header">Fornecedores</h3>
       <table className="table table-striped">
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">NOME</th>
-          <th scope="col">DESCRICAO</th>
-          <th scope="col">QTD</th>
-          <th scope="col">VALOR</th>
+          <th scope="col">RAZAOSOCIAL</th>
+          <th scope="col">NOMEFANTASIA</th>
+          <th scope="col">RUA</th>
+          <th scope="col">NUMERO</th>
+          <th scope="col">BAIRRO</th>
+          <th scope="col">CIDADE</th>
+          <th scope="col">TELEFONE</th>
+          <th scope="col">EMAIL</th>
+          <th scope="col">CNPJ</th>
+          <th scope="col">OPÇÕES</th>
         </tr>
       </thead>
       <tbody>
       {fornecedores.map(fornecedor => (
         <tr>
           <td>{fornecedor.idfornecedor}</td>
-
+          <td>{fornecedor.razao_social}</td>
+          <td>{fornecedor.nome_fantasia}</td>
+          <td>{fornecedor.rua}</td>
+          <td>{fornecedor.numero}</td>
+          <td>{fornecedor.bairro}</td>
+          <td>{fornecedor.cidade}</td>
+          <td>{fornecedor.telefone}</td>
+          <td>{fornecedor.email}</td>
+          <td>{fornecedor.cnpj}</td>
           <td>
-            <button className="btn btn-primary">Add</button>
+            <button className="btn btn-primary">Editar</button>
             <button className="btn btn-danger" >Delete</button>
           </td>
         </tr>

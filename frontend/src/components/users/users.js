@@ -22,26 +22,28 @@ class Users extends React.Component {
   <div className="table-responsive">
   
     <div className="col-md-12">
-        <a href="add.html" class="btn btn-primary pull-right h2">Novo Item</a>
+        <a href="add.html" className="btn btn-primary pull-right h2">Novo Item</a>
     </div>
-    <h3 class="page-header">Usuarios</h3>
+    <h3 className="page-header">Usuarios</h3>
       <table className="table table-striped">
       <thead>
         <tr>
           <th scope="col">#</th>
           <th scope="col">NOME</th>
-          <th scope="col">DESCRICAO</th>
-          <th scope="col">QTD</th>
-          <th scope="col">VALOR</th>
+          <th scope="col">LOGIN</th>
+          <th scope="col">SENHA</th>
+          <th scope="col">OPÇÕES</th>
         </tr>
       </thead>
       <tbody>
       {users.map(user => (
         <tr>
           <td>{user.idusuario}</td>
-        
+          <td>{user.nome}</td>
+          <td>{user.login}</td>
+          <td>{user.senha}</td>
           <td>
-            <button className="btn btn-primary">Add</button>
+            <button className="btn btn-primary">Editar</button>
             <button className="btn btn-danger" >Delete</button>
           </td>
         </tr>

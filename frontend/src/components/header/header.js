@@ -1,27 +1,27 @@
 import React from "react";
-import { Navbar, NavItem, Row, Nav} from 'react-bootstrap';
+import { Navbar, NavItem, Nav} from 'react-bootstrap';
 import { NavLink } from 'react-router-dom'
-
 
 const Header = () => (
 <Navbar inverse collapseOnSelect>
   <Navbar.Collapse>
     <Nav>
-      <NavItem eventKey={1} href="#">
-        <h4>Palacio das Ferramentas</h4>
+      <NavItem>
+        <h4>Palácio das Ferramentas</h4>
       </NavItem>
-
-      
     </Nav>
-      <Nav pullRight>
-      <NavItem eventKey={1} href="#">
-        Fornecedor
+    <Nav pullRight>
+      <NavItem>
+          <NavLink to="/">Home</NavLink>
       </NavItem>
-      <NavItem eventKey={2} href="#">
-        Produtos
+      <NavItem>
+          <NavLink to="fornecedores">Fornecedores</NavLink>
       </NavItem>
-       <NavItem eventKey={2} href="#">
-        Usuarios
+      <NavItem>
+        <NavLink to="products">Produtos</NavLink>
+      </NavItem>
+       <NavItem>
+          <NavLink to="users">Usuarios</NavLink>
       </NavItem>
     </Nav>
   </Navbar.Collapse>
