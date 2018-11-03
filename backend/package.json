@@ -2,8 +2,11 @@
   "name"       : "fullstack-palacio-ferramentas-backend",
   "version"    : "1.0.0",
   "description": "",
-  "main"       : "index.js",
-  "scripts"    : {
+  "engines"    : {
+    "node": "10.3.0"
+  },
+  "main"   : "index.js",
+  "scripts": {
     "start": "node ./src/config/server.js"
   },
   "keywords"    : [],
