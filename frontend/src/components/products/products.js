@@ -1,39 +1,50 @@
 import React from "react";
 import {instance} from '../../services/config';
-
 import './style.css'
 
 class Products extends React.Component {
-    state = {
-         products: [],
-         
-    };
-    
-    async componentDidMount() {
-           const products = await instance.get('products')
-           console.log(products);
-           this.setState({ products: products.data })
-    } 
 
-delete = async (idprodutos) => {
-  instance.delete('/products/' + idprodutos)
-   const products = await instance.get('/products')
-   this.setState({ products })
+state = {
+    products: [],
+};
+    
+async componentDidMount() {
+    const products = await instance.get('products')
+    console.log(products);
+    this.setState({ products: products.data })
+} 
+
+salvar = async () => {
+    const {Product} = this.state;
+    await instance.post("/products")
+    window.location.href = "/products"
 }
 
-  render() {
+atualizar= async () => {
+    const {Product} = this.state;
+    await instance.put("/products")
+    window.location.href = "/products"
+}
 
+delete = async (idprodutos) => {
+    instance.delete('/products/' + idprodutos)
+    // window.location.href = 'SUA URL AQUI DA PÁGINA RENDERIZADA'
+}
+
+render() {
+    
     const { products } = this.state;
+    
     return (
       
       <div className="container">
         <div className="table-responsive">
           <div className="col-md-12">
-              <a href="add.html" className="btn btn-primary pull-right h2">Novo Item</a>
+              <a href="productForm" className="btn btn-primary pull-right h2">Novo Item</a>
           </div>
           
           <h3 className="page-header">Produtos</h3>
-            <table className="table table-striped">
+          <table className="table table-striped">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -57,16 +68,13 @@ delete = async (idprodutos) => {
                     <button className="btn btn-danger" onClick={() => this.delete(product.idprodutos)} >Delete</button>
                   </td>
                 </tr>
-                
                 ))}
             </tbody>
           </table>
         </div>
       </div>
-        );
-    }
+    );
+  }
 }
+
 export default Products;
-
-
-
