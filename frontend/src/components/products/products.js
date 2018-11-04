@@ -28,7 +28,7 @@ atualizar= async () => {
 
 delete = async (idprodutos) => {
     instance.delete('/products/' + idprodutos)
-    // window.location.href = 'SUA URL AQUI DA PÁGINA RENDERIZADA'
+    window.location.href = 'localhost:8080/products'
 }
 
 render() {
@@ -48,6 +48,7 @@ render() {
             <thead>
               <tr>
                 <th scope="col">#</th>
+                <th scope="col">FORNECEDOR</th>
                 <th scope="col">NOME</th>
                 <th scope="col">DESCRIÇÃO</th>
                 <th scope="col">QTD</th>
@@ -59,6 +60,7 @@ render() {
               {products.map(product => (
                 <tr>
                   <td>{product.idprodutos}</td>
+                  <td>{product.nome_fantasia}</td>
                   <td>{product.nome}</td>
                   <td>{product.descricao}</td>
                   <td>{product.quantidade}</td>

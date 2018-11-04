@@ -16,6 +16,7 @@ async componentDidMount() {
 
 delete = (idusuario) => {
   instance.delete('/users/' + idusuario)
+  window.location.href = 'http://localhost:3000/users'
 }
 
 render() {
