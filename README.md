@@ -20,7 +20,13 @@ Entre no navegador
 Exemplo: http://localhost:8080
 
 - frontend
-Entre na pasta cd / frontend e rode o comando
+Entre na pasta cd / frontend e rode o comando npm start
+
+- API Heroku
+https://palacio-ferramentas-api.herokuapp.com/
+
+- Client Heroku
+https://palacio-ferramentas-react.herokuapp.com/
 
 ### Author ###
 * Michel Spirlandeli dos Santos

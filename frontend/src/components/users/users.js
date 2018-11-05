@@ -32,7 +32,7 @@ return (
             <a href="/usersForm" className="btn btn-primary pull-right h2">Novo Item</a>
         </div>
         
-        <h3 className="page-header">Usuarios</h3>
+        <h3 className="page-header">Usuários</h3>
         <table className="table table-striped">
           <thead>
             <tr>

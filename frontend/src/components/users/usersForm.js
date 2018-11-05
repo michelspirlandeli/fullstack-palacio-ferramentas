@@ -23,52 +23,38 @@ onChange(e) {
 
   onSubmit(e) {
     e.preventDefault();
-    const newProject = {
+    const users = {
       nome : this.state.nome,
       login: this.state.login,
       senha: this.state.senha,
    
     };
-    this.props.createProject(newProject, this.props.history);
+    
   }
+salvar = async () => {
+    const {users} = this.state;
+    await instance.post("/users")
+    window.location.href = "/users"
+}
 
 render() {
     return (
     <div className="container">
       <h3 className="page-header">Cadastro Usuários</h3>
-        <Form horizontal>
-          <FormGroup controlId="formHorizontalNome" onSubmit={this.onSubmit}>
-            <Col componentClass={ControlLabel} sm={2}>
-              Nome
-            </Col>
-            <Col sm={10}>
-              <FormControl type="text"  value={this.state.nome}
-                      onChange={this.onChange} placeholder="Nome" />
-            </Col>
-          </FormGroup>
-          <FormGroup controlId="formHorizontalLogin">
-            <Col componentClass={ControlLabel} sm={2}>
-              Login
-            </Col>
-            <Col sm={10}>
-              <FormControl type="text"  value={this.state.login}
-                      onChange={this.onChange} placeholder="Login" />
-            </Col>
-          </FormGroup>
-          <FormGroup controlId="formHorizontalSenha">
-            <Col componentClass={ControlLabel} sm={2}>
-              Senha
-            </Col>
-            <Col sm={10}>
-              <FormControl type="password"  value={this.state.senha}
-                      onChange={this.onChange}placeholder="Senha" />
-            </Col>
-          </FormGroup>
-          <FormGroup>
-            <Col smOffset={2} sm={10}>
-              <Button className="btn btn-primary" type="submit" value="submit">Salvar</Button>
-            </Col>
-          </FormGroup>
+        <Form horizontal onSubmit={this.onSubmit}>
+        <div class="form-group">
+         <label>Nome: </label>
+            <input  type="text" className="form-control" name="nome" value={this.setState.nome} placeholder="Nome" />
+        </div>
+        <div class="form-group">
+           <label>Login: </label>
+            <input type="text" className="form-control" name="login" value={this.setState.login} placeholder="Login"/>
+        </div>
+        <div class="form-group">  
+           <label>Senha: </label>
+            <input type="text" className="form-control" name="senha" value={this.setState.senha} placeholder="Senha"/>
+        </div>
+          <button className="btn btn-primary"  type="submit" value="Salvar" >Salvar</button>
         </Form>
     </div>
     );

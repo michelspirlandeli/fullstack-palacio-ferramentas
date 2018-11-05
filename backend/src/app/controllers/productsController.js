@@ -3,7 +3,7 @@ const database = require('../../config/database/database');
 
 //Get all products
 const get = (req, res) => {
-    database.query('SELECT * FROM produtos', (err, rows, fields) => {
+    database.query('SELECT * FROM produtos INNER JOIN fornecedores ON produtos.idprodutos = fornecedores.idfornecedores', (err, rows, fields) => {
         if (!err)
             res.send(rows);
         else
@@ -33,8 +33,8 @@ const remover = (req, res) => {
 
 //Insert an products
 const post = (req, res) => {
-   const {nome, descricao, quantidade, valor} = req.body
-   database.query('INSERT INTO produtos SET ?', {nome, descricao, quantidade, valor },  (err) => {
+   const {nome, descricao, quantidade, valor, idfornecedores} = req.body
+   database.query('INSERT INTO produtos SET ?', {nome, descricao, quantidade, valor, idfornecedores },  (err) => {
     if (!err)
     res.send('Insert successfully.');
     else

@@ -1,8 +1,10 @@
 import React from "react";
 import { Navbar, NavItem, Nav} from 'react-bootstrap';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
+import './style.css';
 
 const Header = () => (
+  
 <Navbar inverse collapseOnSelect>
   <Navbar.Collapse>
     <Nav>
@@ -10,18 +12,18 @@ const Header = () => (
         <h4>Palácio das Ferramentas</h4>
       </NavItem>
     </Nav>
-    <Nav pullRight>
+    <Nav pullRight >
       <NavItem>
-          <NavLink to="/">Home</NavLink>
+          <NavLink className="header" to="/">Home</NavLink>
       </NavItem>
       <NavItem>
-          <NavLink to="fornecedores">Fornecedores</NavLink>
+          <NavLink className="header" to="fornecedores">Fornecedores</NavLink>
       </NavItem>
       <NavItem>
-        <NavLink to="products">Produtos</NavLink>
+        <NavLink className="header" to="products">Produtos</NavLink>
       </NavItem>
        <NavItem>
-          <NavLink to="users">Usuarios</NavLink>
+          <NavLink className="header" to="users">Usuários</NavLink>
       </NavItem>
     </Nav>
   </Navbar.Collapse>

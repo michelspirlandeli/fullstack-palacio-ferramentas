@@ -21,7 +21,16 @@ server.get('/', (req, res) => {
   res.send('Servidor criado com resposta para o path /.')
 })
 
-server.listen(8080, () =>{
-  console.log('Servidor http://localost:8080')
+
+/*---- LISTENING ----*/
+
+//localhost
+/*server.listen(8080, () =>{
+  console.log('Servidor http://localhost:8080')
   console.log('Para derrubar o servidor: ctrl + c')
-})
+})*/
+
+//heroku
+server.listen(process.env.PORT || 8080, function() {
+  console.log('%s listening at %s', server.name, server.url);
+});
